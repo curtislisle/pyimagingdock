@@ -1,2 +1,3 @@
 FROM python:2-onbuild
-ENTRYPOINT ["python", "-m", "pysciencedock"]
+#RUN pip install SimpleITK
+ENTRYPOINT ["python", "-m", "pyimagingdock"]

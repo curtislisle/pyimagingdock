@@ -1,15 +1,11 @@
 from inspect import getmembers, isfunction
 from itertools import chain
 import json
-import metabolomics
-import statistics
-import transform
+import imaging
 import sys
 
 modules = [
-    metabolomics,
-    statistics,
-    transform
+    imaging
 ]
 
 tasks = list(chain.from_iterable([getmembers(module, isfunction) for module in modules]))
