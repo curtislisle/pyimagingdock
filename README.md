@@ -1,6 +1,6 @@
 # pyimagingdock
 
-Image processig methods from Python exposed through Docker.  Based off of the pysciencedock
+Image processing methods from Python and SimpleITK exposed through Docker.  Based off of the pysciencedock
 design here: http://github.com/Kitware/pysciencedock
 
 
@@ -38,7 +38,7 @@ volume prefix for the input and output paths. For example, if `myinput.csv`
 is in your current directory, the following will produce `myoutput.csv` in
 the current directory:
 ```
-docker run -v $PWD:/data pyimagingdock normalize --data=/data/myinput.csv --output=/data/myoutput.csv
+docker run -v $PWD:/data pyimagingdock ImagePassThroughFilter --image=/data/myinput.png --output=/data/myoutput.png
 ```
 
 Build the Docker image:
