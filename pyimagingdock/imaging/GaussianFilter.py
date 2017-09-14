@@ -16,4 +16,13 @@ def GaussianFilter(image, sigma):
     blurFilter = sitk.SmoothingRecursiveGaussianImageFilter()
     blurFilter.SetSigma(float(sigma))
     outimage = blurFilter.Execute(image)
+    
+  # Covert the real output image back to the original pixel type, to
+  # make writing easier, as many file formats don't support real
+  # pixels.
+    
+    caster = sitk.CastImageFilter()
+    caster.SetOutputPixelType(image.GetPixelID())
+    outimage=caster.Execute(outimage)
+
     return outimage
