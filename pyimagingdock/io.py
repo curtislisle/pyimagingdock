@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 import six
 from PIL import Image
 import SimpleITK as sitk
@@ -31,7 +32,13 @@ def readDicom(dicomFileName):
 
     # desearialization method for an ITK image
 def readSitkImage(imgFileName):
-    image = sitk.ReadImage(imgFileName)
+    if(os.path.isdir(imgFileName)==True):
+        for file in os.listdir(imgFileName):
+            imgPath =imgFileName+"/"+file
+            print(imgPath)
+            image = sitk.ReadImage(imgPath)
+    else:
+        image = sitk.ReadImage(imgFileName)
     return image
 
 # this doesn't have the write arguments
